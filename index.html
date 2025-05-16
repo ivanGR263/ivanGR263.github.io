@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio Personal - Desarrollador</title>
+  <!-- Font Awesome CDN for icons -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    /* Reset and base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f7f5fb;
+      color: #3c1e70;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* Header styles */
+    header {
+      background: #5a3e99;
+      color: #fff;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(90, 62, 153, 0.3);
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    nav a {
+      font-weight: 600;
+      font-size: 18px;
+      padding: 8px 15px;
+      border-radius: 30px;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    nav a:hover,
+    nav a:focus {
+      background-color: #7a59c3;
+      outline: none;
+    }
+
+    /* Section Headers */
+    h1, h2 {
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    h1 {
+      font-size: 3rem;
+      color: #3c1e70;
+      margin-top: 60px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    h2 {
+      color: #5a3e99;
+      border-bottom: 3px solid #7a59c3;
+      padding-bottom: 8px;
+      margin-bottom: 25px;
+    }
+
+    /* Inicio Section */
+    #inicio {
+      text-align: center;
+      padding: 60px 20px 80px;
+      background: linear-gradient(135deg, #5a3e99 0%, #7a59c3 100%);
+      color: white;
+      border-radius: 15px;
+      margin-top: 20px;
+      box-shadow: 0 8px 20px rgba(90, 62, 153, 0.3);
+    }
+    #inicio img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      margin-bottom: 20px;
+    }
+    #inicio p {
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+      font-size: 1.2rem;
+    }
+    #inicio .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+    #inicio .social-icons a {
+      color: white;
+      font-size: 28px;
+      transition: color 0.3s ease;
+    }
+    #inicio .social-icons a:hover,
+    #inicio .social-icons a:focus {
+      color: #d9b3ff;
+      outline: none;
+    }
+
+    /* Proyectos Section */
+    #proyectos .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(90, 62, 153, 0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(90, 62, 153, 0.25);
+    }
+    .project-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .project-card-content {
+      padding: 15px 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .project-card h3 {
+      margin-bottom: 8px;
+      color: #5a3e99;
+    }
+    .project-card p {
+      flex-grow: 1;
+      font-size: 0.95rem;
+      color: #6e6b85;
+      margin-bottom: 12px;
+    }
+    .project-card a {
+      align-self: flex-start;
+      color: #7a59c3;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .project-card a:hover,
+    .project-card a:focus {
+      color: #5a3e99;
+      outline: none;
+    }
+
+    /* Experience Sections */
+    .experience-list {
+      list-style: none;
+    }
+    .experience-item {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(90, 62, 153, 0.1);
+      padding: 18px 20px;
+      margin-bottom: 18px;
+      transition: box-shadow 0.3s ease;
+    }
+    .experience-item:hover {
+      box-shadow: 0 8px 14px rgba(90, 62, 153, 0.18);
+    }
+    .experience-item h3 {
+      color: #5a3e99;
+      margin-bottom: 5px;
+    }
+    .experience-item .date {
+      font-style: italic;
+      color: #967ac0;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+    .experience-item p {
+      font-size: 0.95rem;
+      color: #4a4475;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      background-color: #5a3e99;
+      color: white;
+      font-size: 0.9rem;
+      margin-top: 40px;
+      user-select: none;
+      box-shadow: 0 -2px 8px rgba(90, 62, 153, 0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+      nav {
+        gap: 15px;
+      }
+      nav a {
+        font-size: 16px;
+        padding: 6px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Navegación principal">
+      <a href="#inicio" tabindex="1"><i class="fa-solid fa-house"></i> Inicio</a>
+      <a href="#proyectos" tabindex="2"><i class="fa-solid fa-code"></i> Proyectos</a>
+      <a href="#experienciaAcademica" tabindex="3"><i class="fa-solid fa-graduation-cap"></i> Experiencia Académica</a>
+      <a href="#experienciaPersonal" tabindex="4"><i class="fa-solid fa-briefcase"></i> Experiencia Personal</a>
+    </nav>
+  </header>
+
+  <main class="container" role="main">
+    <section id="inicio" aria-label="Sección de inicio">
+      <img src="https://via.placeholder.com/140" alt="Foto de perfil" />
+      <h1>Hola, soy [Tu Nombre]</h1>
+      <p>
+        Desarrollador de software apasionado por crear soluciones modernas, elegantes y funcionales.
+        Con experiencia en desarrollo web y aplicaciones.
+      </p>
+      <div class="social-icons" aria-label="Enlaces a redes sociales">
+        <a href="#" aria-label="GitHub" tabindex="5" target="_blank"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+        <a href="#" aria-label="LinkedIn" tabindex="6" target="_blank"
+          ><i class="fa-brands fa-linkedin"></i
+        ></a>
+        <a href="#" aria-label="Twitter" tabindex="7" target="_blank"
+          ><i class="fa-brands fa-twitter"></i
+        ></a>
+      </div>
+    </section>
+
+    <section id="proyectos" aria-label="Sección de proyectos">
+      <h2><i class="fa-solid fa-code"></i> Proyectos Destacados</h2>
+      <div class="projects-grid">
+        <article class="project-card" tabindex="8">
+          <img
+            src="https://via.placeholder.com/400x160?text=Proyecto+1"
+            alt="Captura del Proyecto 1"
+          />
+          <div class="project-card-content">
+            <h3>Proyecto Uno</h3>
+            <p>
+              Aplicación web para gestión de tareas con funcionalidades avanzadas de usuario.
+            </p>
+            <a href="#" target="_blank" rel="noopener" tabindex="9"
+              >Ver más <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </article>
+
+        <article class="project-card" tabindex="10">
+          <img
+            src="https://via.placeholder.com/400x160?text=Proyecto+2"
+            alt="Captura del Proyecto 2"
+          />
+          <div class="project-card-content">
+            <h3>Proyecto Dos</h3>
+            <p>
+              Plataforma de ecommerce con pasarela de pago integrada y administración en tiempo real.
+            </p>
+            <a href="#" target="_blank" rel="noopener" tabindex="11"
+              >Ver más <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </article>
+
+        <article class="project-card" tabindex="12">
+          <img
+            src="https://via.placeholder.com/400x160?text=Proyecto+3"
+            alt="Captura del Proyecto 3"
+          />
+          <div class="project-card-content">
+            <h3>Proyecto Tres</h3>
+            <p>
+              Aplicación móvil para seguimiento de hábitos con integración de recordatorios.
+            </p>
+            <a href="#" target="_blank" rel="noopener" tabindex="13"
+              >Ver más <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experienciaAcademica" aria-label="Sección de experiencia académica">
+      <h2><i class="fa-solid fa-graduation-cap"></i> Experiencia Académica</h2>
+      <ul class="experience-list">
+        <li class="experience-item" tabindex="14">
+          <h3>Ingeniería en Sistemas Computacionales</h3>
+          <div class="date">2016 – 2021</div>
+          <p>
+            Universidad Nacional Autónoma de México (UNAM).
+            Formación en desarrollo de software, bases de datos, y sistemas distribuidos.
+          </p>
+        </li>
+        <li class="experience-item" tabindex="15">
+          <h3>Curso Avanzado de JavaScript</h3>
+          <div class="date">2022</div>
+          <p>
+            Platzi. Profundización en ES6+, asincronía y desarrollo web moderno.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="experienciaPersonal" aria-label="Sección de experiencia personal">
+      <h2><i class="fa-solid fa-briefcase"></i> Experiencia Profesional</h2>
+      <ul class="experience-list">
+        <li class="experience-item" tabindex="16">
+          <h3>Desarrollador Frontend</h3>
+          <div class="date">2021 – Presente</div>
+          <p>
+            Empresa XYZ. Desarrollo y mantenimiento de aplicaciones web responsivas usando React y Vue.js.
+          </p>
+        </li>
+        <li class="experience-item" tabindex="17">
+          <h3>Practicante de Desarrollo de Software</h3>
+          <div class="date">2020</div>
+          <p>
+            Startup ABC. Colaboración en diseño y programación de un sistema interno de gestión de clientes.
+          </p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2024 Ivan Guerrero. Todos los derechos reservados.
+  </footer>
+</body>
+</html>
+
